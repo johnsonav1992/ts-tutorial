@@ -71,3 +71,4 @@ const throwError = ( errorMsg: string ) => {
 };
 
 // This function will never actually executes because it always throws an error and doesn't actually get to return, the return type of it is never
+// If you are ever writing functional code and your code accidentally returns never, that generally means you set up your function(s) in a way that won't produce inferrable results and in some cases are just not correct. This will happen especially frequently when using library APIs incorrectly
