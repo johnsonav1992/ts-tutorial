@@ -17,7 +17,7 @@
 
 type NoTypeSafety = any;
 
-// In TS, if you type something as any, it turns type checking off. This would essentially be the same as writing plain JS. If the point of using TS is to have type checking and catch errors before runtime, using any doesn't make sense 99% of the time. The reason to have any around is in very rare cases where you truly do need it. Otherwise, just don't use TS! :)
+// In TS, if you type something as any, it turns type checking off. This would essentially be the same as writing plain JS. If the point of using TS is to have type checking and catch errors before runtime, using any doesn't make sense 99% of the time. The reason to have any around is in very rare cases where you truly do need it. Otherwise, just don't use TS if you plan on using it! :)
 
 // Primitives
 const numberOfFriends: number = 4;
@@ -73,7 +73,7 @@ const arrOfObjects: User[] = [
         firstName: 'Another'
         , lastName: 'Dude'
         , age: 3
-        , hobbies: [ 'baby food' ]
+        , hobbies: [ 'soccer' ]
     }
 ]; // Every object in this array must conform to shape of User or else an error will be thrown
 
