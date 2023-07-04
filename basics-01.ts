@@ -1,9 +1,13 @@
+/* eslint-disable spaced-comment */
+/* eslint-disable multiline-comment-style */
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 
 
-// STATIC TYPE ANNOTATIONS
+/////////////////////////////
+// STATIC TYPE ANNOTATIONS //
+/////////////////////////////
 
 // Primitives
 const numberOfFriends: number = 4;
