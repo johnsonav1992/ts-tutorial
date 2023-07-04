@@ -71,6 +71,7 @@ const arrOfObjects: User[] = [
 
 // Tuples - arrays that are set with a specific number of specific values
 type Options = ['this', 'that'];
+type Mixed = ['a string', 3];
 
 // @ts-expect-error - cannot assign another value to this tuple because it is "set in stone"
 const options: Options = [ 'another option' ];
