@@ -1,2 +1,3 @@
-# This is a Template Repo
-- Template Repo that configures Typescript, Eslint, etc. Can be used for either Frontend or Backend project.
+# TS Tutorial - by Alex Johnson
+
+A little repo I have created for going through the different aspects of basic TypeScript for learning purposes!
