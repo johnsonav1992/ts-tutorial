@@ -1,3 +1,5 @@
+/* eslint-disable no-inline-comments */
+/* eslint-disable array-element-newline */
 /* eslint-disable spaced-comment */
 /* eslint-disable multiline-comment-style */
 /* eslint-disable prefer-const */
@@ -5,16 +7,16 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 
 
-/////////////////////////////
-// STATIC TYPE ANNOTATIONS //
-/////////////////////////////
+////////////////////////////////////////////////
+// STATIC TYPE ANNOTATIONS AND TYPE INFERENCE //
+////////////////////////////////////////////////
 
 // Primitives
 const numberOfFriends: number = 4;
 const firstName: string = 'Alex';
 let thisStillWorks = true;
 
-// Objects/Arrays/Tuples
+// Objects
 const user = {
     firstName: 'Eliot'
     , lastName: 'Johnson'
@@ -47,3 +49,28 @@ const newUser: User = {
     , age: '40'
     , hobbies: [ 'Dating Pocahontas' ]
 };
+
+// Arrays
+const anArray = [ 1, 2, 3 ]; // number[]
+const mixedArr = [ 'hello', 4 ]; // (string | number)[]
+const strArr: string[] = [ 'these', 'must', 'all', 'be', 'strings' ];
+const arrOfObjects: User[] = [
+    {
+        firstName: 'Some'
+        , lastName: 'Person'
+        , age: 100
+        , hobbies: [ 'nothing' ]
+    }
+    , {
+        firstName: 'Another'
+        , lastName: 'Dude'
+        , age: 3
+        , hobbies: [ 'baby food' ]
+    }
+];
+
+// Tuples - arrays that are set with a specific number of specific values
+type Options = ['this', 'that'];
+
+// @ts-expect-error - cannot assign another value to this tuple because it is "set in stone"
+const options: Options = [ 'another option' ];
