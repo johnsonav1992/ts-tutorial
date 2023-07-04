@@ -67,7 +67,7 @@ const arrOfObjects: User[] = [
         , age: 3
         , hobbies: [ 'baby food' ]
     }
-];
+]; // Every object in this array must conform to shape of User or else an error will be thrown
 
 // Tuples - arrays that are set with a specific number of specific values
 type Options = ['this', 'that'];
