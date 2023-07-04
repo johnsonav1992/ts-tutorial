@@ -23,7 +23,46 @@ const reader = readline.createInterface( {
 
 // So far we haven't had to type a single thing because types for these native NodeJS APIs are already baked into TS so we get autocomplete and everything. Super nice!
 
-reader.question( 'What would you like to calculate? ', ( input ) => {
-    const tokens = input.split( ' ' );
-    console.log( tokens );
-} );
+type Operators = '+' | '-' | '/' | '*';
+const MATH_SYMBOLS: Operators[] = [ '+', '-', '/', '*' ];
+
+const askQuestion = () => {
+    reader.question( 'What would you like to calculate? ', ( input ) => {
+        let tokens: string[]; // since this isn't initialized, typing it explicitly is important.
+
+        if ( input.includes( ' ' ) ) {
+            tokens = input.split( ' ' );
+        } else {
+            tokens = input.split( '' );
+        }
+
+        const operator = tokens.find( token => MATH_SYMBOLS.find( symbol => symbol === token ) );
+        const operands = tokens.filter( token => token !== operator );
+
+        const num1 = parseFloat( operands[ 0 ] );
+        const num2 = parseFloat( operands[ 1 ] );
+
+        if ( operator ) {
+            switch ( operator as Operators ) { // We use typecasting here because we know that if we have an operator returned it will be one of the four we have selected. Gives us better autocompletion in the switch case!
+                case '+': console.log( num1 + num2 );
+                    break;
+                case '-': console.log( num1 - num2 );
+                    break;
+                case '*': console.log( num1 * num2 );
+                    break;
+                case '/': console.log( num1 / num2 );
+                    break;
+            }
+        }
+
+        reader.question( 'Another? Type "y" or "n" ', ( input ) => {
+            if ( input === 'y' || input === 'Y' ) {
+                askQuestion();
+            } else {
+                reader.close;
+            }
+        } );
+    } );
+};
+
+askQuestion(); // init on program start
