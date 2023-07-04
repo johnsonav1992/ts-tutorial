@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-inline-comments */
 /* eslint-disable array-element-newline */
 /* eslint-disable spaced-comment */
@@ -10,6 +12,12 @@
 ////////////////////////////////////////////////
 // STATIC TYPE ANNOTATIONS AND TYPE INFERENCE //
 ////////////////////////////////////////////////
+
+// The Any Type - getting this out of the way first
+
+type NoTypeSafety = any;
+
+// In TS, if you type something as any, it turns type checking off. This would essentially be the same as writing plain JS. If the point of using TS is to have type checking and catch errors before runtime, using any doesn't make sense 99% of the time. The reason to have any around is in very rare cases where you truly do need it. Otherwise, just don't use TS! :)
 
 // Primitives
 const numberOfFriends: number = 4;
