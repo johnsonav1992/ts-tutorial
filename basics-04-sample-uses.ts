@@ -53,16 +53,35 @@ const askQuestion = () => {
                 case '/': console.log( num1 / num2 );
                     break;
             }
+        } else {
+            console.log( 'You must only perform basic calculations with these operators: +, -, /, *  (i.e. 5 + 4)' );
+            askQuestion();
         }
 
-        reader.question( 'Another? Type "y" or "n" ', ( input ) => {
-            if ( input === 'y' || input === 'Y' ) {
-                askQuestion();
-            } else {
-                reader.close;
+        calculateMore();
+    } );
+};
+
+const calculateMore = () => {
+    reader.question( 'Another? Type "y" or "n" ', ( input ) => {
+        console.log( input );
+
+        switch ( input ) {
+            case 'y':
+            case 'Y': askQuestion();
+                break;
+            case 'n':
+            case 'N': reader.close();
+                break;
+
+            default: {
+                console.log( 'Please enter a valid option!' );
+                calculateMore();
             }
-        } );
+        }
     } );
 };
 
 askQuestion(); // init on program start
+
+// Much of this simple program was typed ahead of time from the library/api being used or only required a few type annotations here and there. The beauty of all this is, you can make sure everything is type-safe so that you will get inline IDE errors without having a bunch of errors thrown at runtime! Pretty simple to integrate TS and get all the benefits!
