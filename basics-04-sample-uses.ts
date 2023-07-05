@@ -53,12 +53,13 @@ const askQuestion = () => {
                 case '/': console.log( num1 / num2 );
                     break;
             }
+
+            calculateMore();
         } else {
             console.log( 'You must only perform basic calculations with these operators: +, -, /, *  (i.e. 5 + 4)' );
             askQuestion();
         }
 
-        calculateMore();
     } );
 };
 
