@@ -13,18 +13,23 @@
 // STATIC TYPE ANNOTATIONS AND TYPE INFERENCE //
 ////////////////////////////////////////////////
 
-// The Any Type - getting this out of the way first
+// Type annotations are the most basic why to type something in TS. It's all about putting the type after a colon following the variable or entity:
 
+const thing: string = 'This string is a string!';
+
+// The Any Type - getting this out of the way first, because it's the big point of debate!!
+
+const iDontCareWhatTypeThisIs: any = 'I can reassign this or do whatever I want...';
 type NoTypeSafety = any;
 
-// In TS, if you type something as any, it turns type checking off. This would essentially be the same as writing plain JS. If the point of using TS is to have type checking and catch errors before runtime, using any doesn't make sense 99% of the time. The reason to have any around is in very rare cases where you truly do need it. Otherwise, just don't use TS if you plan on using it! :)
+// In TS, if you type something as any, it turns type checking off. This would essentially be the same as writing plain JS. If the point of using TS is to have type checking and catch errors before runtime, using any doesn't make sense 99% of the time. The reason to have any around is in very rare cases where you truly do need it (you absolutely cannot know the type of the entity ahead of time). Otherwise, just don't use TS if you plan on using it! :)
 
-// Primitives
+//-- Primitives --//
 const numberOfFriends: number = 4;
 const firstName: string = 'Alex';
-let thisStillWorks = true;
+let thisStillWorks = true; // hover over the variable name and see that the type is inferred! TS is smart (Sometimes :) )
 
-// Objects
+//-- Objects --//
 const user = {
     firstName: 'Eliot'
     , lastName: 'Johnson'
@@ -34,7 +39,7 @@ const user = {
 
 type User = typeof user;
 
-// OR //
+// OR...
 
 type User2 = {
     firstName: string;
@@ -43,6 +48,8 @@ type User2 = {
     hobbies: string[];
 };
 
+// An interface as like using the 'type' keyword but it can only be used for objects (and some functions...) and you do not use the = sign
+// More on interfaces later!
 interface User3 {
     firstName: string;
     lastName: string;
@@ -58,7 +65,7 @@ const newUser: User = {
     , hobbies: [ 'Dating Pocahontas' ]
 };
 
-// Arrays
+//-- Arrays --//
 const anArray = [ 1, 2, 3 ]; // number[]
 const mixedArr = [ 'hello', 4 ]; // (string | number)[]
 const strArr: string[] = [ 'these', 'must', 'all', 'be', 'strings' ];
@@ -77,7 +84,9 @@ const arrOfObjects: User[] = [
     }
 ]; // Every object in this array must conform to shape of User or else an error will be thrown
 
-// Tuples - arrays that are set with a specific number of specific values
+//-- Tuples --//
+// arrays that are set with a specific number of specific values
+
 type Options = ['this', 'that'];
 type Mixed = ['a string', 3];
 

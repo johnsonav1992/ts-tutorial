@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable indent */
 /* eslint-disable max-len */
 /* eslint-disable no-inline-comments */
 /* eslint-disable array-element-newline */
@@ -11,15 +13,16 @@
 // BASIC FUNCTION TYPING //
 ///////////////////////////
 
-// Typing Function arguments and returns //
+//-- Typing Function arguments and returns --//
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                                // v return type annotation
 const aBasicFunctionWithTypes = ( argument: any ): any => {
+                                        // ^ arg type annotation
     return;
 };
 
-// This func. above uses basic typ annotations in two place, one for its argument/param and one for its return type
-// We are using any here just to show where the types go but with the noImplicitAny setting turned on, this would give us an error - types preferred always!
+// This func. above uses basic type annotations in two places, one for its argument(s)/param(s) and one for its return type
+// We are using any here just to show where the types go but as you know... types preferred always!
 // Note -  Many times you don't have to type the return because it is inferred, like so...
 
 const add = ( num1: number, num2: number ) => {
@@ -35,7 +38,7 @@ const add = ( num1: number, num2: number ) => {
 add( '2', 3 );
 
 
-// Functions as Types (Function Signatures) //
+//-- Functions as Types (Function Signatures) --//
 
 type Func = ( num1: number, num2: number ) => number;
 

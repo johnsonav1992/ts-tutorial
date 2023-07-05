@@ -11,6 +11,8 @@
 // BASIC UNION TYPES //
 ///////////////////////
 
+// Union types are essentially a type where you can say that the type is this, or this, or that
+
 type UnionOfStuff = 'car' | 'table' | 'sink';
 type AnotherRandoUnion = 1 | true | 'heck yeah';
 
@@ -31,10 +33,10 @@ functionUsingRandomUnion( 78 ); // No worky work
 // UNKNOWN, VOID & NEVER //
 ///////////////////////////
 
-// UNKNOWN
+//-- UNKNOWN --//
 type SomeTypeThatWeDontKnowWhatItIs = unknown;
 
-// unknown is like any except instead of allowing anything to work it allows nothing to work    unless it knows for sure that it can infer the type
+// unknown is like any except instead of allowing anything to work it allows nothing to work unless it knows for sure that it can infer the type
 
 const thisTakesInWhatever = ( thing: unknown ) => {
     //@ts-expect-error - won't work because we can't operate on something that is unknown
@@ -52,7 +54,7 @@ const thisTakesInWhatever2 = ( thing: unknown ) => {
     }
 };
 
-// VOID
+//-- VOID --//
 const thisFunctionReturnsNothing = () => {
     return;
 };
@@ -60,7 +62,7 @@ const thisFunctionReturnsNothing = () => {
 // You can see the type of this is () => void, which means it returns nothing
 
 
-// NEVER
+//-- NEVER --//
 
 type ThisCouldNeverWork = never;
 
