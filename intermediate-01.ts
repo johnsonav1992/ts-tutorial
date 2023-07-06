@@ -24,7 +24,7 @@ console.log( ( result as string ).length );
 // TS allows this because it is unknown. If it knew it was a number, you would have to first convert it to a string and typecasting would throw an error
 
 //-- NonNull Assertion (!) --//
-// This assertion is used for when you absolutely know something will exist (not be null or undefined) and you are making TS aware of that. Use this with CAUTION! Only when you are 100% (or more) sure that this is the case.
+// This assertion is used for when you absolutely know something will exist (not be null or undefined) and you are making TS aware of that. Use this with CAUTION! Only when you are 100% (or more) sure that this is the case. These assertions can essentially be used in place of optional chaining (?.) when appropriate or necessary.
 
 interface Data {
     data: string;
