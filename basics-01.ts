@@ -24,9 +24,11 @@ type NoTypeSafety = any;
 
 // In TS, if you type something as any, it turns type checking off. This would essentially be the same as writing plain JS. If the point of using TS is to have type checking and catch errors before runtime, using any doesn't make sense 99% of the time. The reason to have any around is in very rare cases where you truly do need it (you absolutely cannot know the type of the entity ahead of time). Otherwise, just don't use TS if you plan on using it! :)
 
-//-- Primitives --//
+//-- Primitives --// -- string, numbers, boolean
 const numberOfFriends: number = 4;
 const firstName: string = 'Alex';
+
+// Inference
 let thisStillWorks = true; // hover over the variable name and see that the type is inferred! TS is smart (Sometimes :) )
 
 //-- Objects --//
@@ -57,6 +59,10 @@ interface User3 {
     hobbies: string[];
 }
 
+interface User4 extends User3 {
+    powers: string[];
+}
+
 const newUser: User = {
     firstName: 'John'
     , lastName: 'Smith'
@@ -84,11 +90,14 @@ const arrOfObjects: User[] = [
     }
 ]; // Every object in this array must conform to shape of User or else an error will be thrown
 
+
 //-- Tuples --//
 // arrays that are set with a specific number of specific values
 
 type Options = ['this', 'that'];
 type Mixed = ['a string', 3];
+
+type DisplayMode = ['light', 'dark'];
 
 // @ts-expect-error - cannot assign another value to this tuple because it is "set in stone"
 const options: Options = [ 'another option' ];

@@ -39,7 +39,7 @@ type SomeTypeThatWeDontKnowWhatItIs = unknown;
 // unknown is like any except instead of allowing anything to work it allows nothing to work unless it knows for sure that it can infer the type
 
 const thisTakesInWhatever = ( thing: unknown ) => {
-    //@ts-expect-error - won't work because we can't operate on something that is unknown
+    // @ts-expect-error - won't work because we can't operate on something that is unknown
     return thing + thing;
 };
 
@@ -57,6 +57,10 @@ const thisTakesInWhatever2 = ( thing: unknown ) => {
 //-- VOID --//
 const thisFunctionReturnsNothing = () => {
     return;
+};
+
+const log = () => {
+    console.log( 'hi' );
 };
 
 // You can see the type of this is () => void, which means it returns nothing

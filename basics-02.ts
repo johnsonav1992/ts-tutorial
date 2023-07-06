@@ -34,13 +34,17 @@ const add = ( num1: number, num2: number ) => {
 
 // Here is what we get if we try to pass a string into a number slot of this function...
 
-//@ts-expect-error - Argument of type 'string' is not assignable to parameter of type 'number'.ts(2345)
+// @ts-expect-error - Argument of type 'string' is not assignable to parameter of type 'number'.ts(2345)
 add( '2', 3 );
 
 
 //-- Functions as Types (Function Signatures) --//
 
 type Func = ( num1: number, num2: number ) => number;
+
+const testFunc: Func = ( a, b ) => {
+    return a + b;
+};
 
 // Here is the explicit type of this function for the above 'add' function but stored in a type - this is called a function signature
 // To type a function signature, all you need is the parentheses with arguments (typed) inside, the arrow, and then the return type. You must have all three things (or at least two if no arguments) in order to have a valid function signature
